@@ -8,21 +8,19 @@
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (add-to-list 'package-archives
              '("tromey" . "http://tromey.com/elpa/") t)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+;;(add-to-list 'package-archives
+;;             '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (add-to-list 'package-archives
               '("melpa-stable" . "https://stable.melpa.org/packages/"))
-
-;; (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-;;                          ("marmalade" . "http://marmalade-repo.org/packages/")
-;;                          ("melpa" . "http://melpa-stable.milkbox.net/packages/")))
-
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/") t)
 
 ;; Load and activate emacs packages. Do this first so that the
 ;; packages are loaded before you start trying to modify them.
 ;; This also sets the load path.
 (package-initialize)
 
+(add-to-list 'load-path "~/.emacs.d/ergoemacs-mode")
 (require 'ergoemacs-mode)
 
 ;; Ergoemacs
@@ -90,7 +88,10 @@
     magit
 
     ;; Clojure Company
-    company))
+    company
+
+    ;; neotree file explorer
+    neotree))
 
 ;; On OS X, an Emacs instance started from the graphical user
 ;; interface will have a different environment than a shell in a
@@ -160,3 +161,20 @@
 (global-set-key (kbd "C-q") 'previous-buffer)
 (global-set-key (kbd "C-e") 'next-buffer)
 (global-set-key (kbd "C-s") 'save-buffer)
+(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "<f8>") 'neotree-toggle)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(coffee-tab-width 2)
+ '(package-selected-packages
+   (quote
+    (neotree magit-p4 cider-decompile tagedit smex rainbow-delimiters projectile paredit magit ido-ubiquitous expand-region exec-path-from-shell company clojure-mode-extra-font-locking cider))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
