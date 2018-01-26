@@ -32,6 +32,9 @@
 (global-company-mode)
 (global-set-key (kbd "TAB") #'company-indent-or-complete-common)
 
+;; Elscreen Tab Bar
+(elscreen-start)
+
 ;; Download the ELPA archive description if needed.
 ;; This informs Emacs about the latest versions of all packages, and
 ;; makes them available for download.
@@ -158,8 +161,9 @@
 
 ;; custom keys
 (global-set-key (kbd "<f1>") 'cider-jack-in)
-(global-set-key (kbd "C-q") 'previous-buffer)
-(global-set-key (kbd "C-e") 'next-buffer)
+(global-set-key (kbd "C-q") 'elscreen-previous)
+(global-set-key (kbd "C-e") 'elscreen-next)
+(global-set-key (kbd "C-t") 'elscreen-create)
 (global-set-key (kbd "C-s") 'save-buffer)
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "<f8>") 'neotree-toggle)
@@ -171,7 +175,7 @@
  '(coffee-tab-width 2)
  '(package-selected-packages
    (quote
-    (neotree magit-p4 cider-decompile tagedit smex rainbow-delimiters projectile paredit magit ido-ubiquitous expand-region exec-path-from-shell company clojure-mode-extra-font-locking cider))))
+    (elscreen-buffer-group elscreen neotree magit-p4 cider-decompile tagedit smex rainbow-delimiters projectile paredit magit ido-ubiquitous expand-region exec-path-from-shell company clojure-mode-extra-font-locking cider))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
