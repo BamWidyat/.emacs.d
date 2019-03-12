@@ -1,7 +1,7 @@
 ;; Customize emacs editing behaviour
 
 ;; Enable automatic parentheses pairing
-;; (electric-pair-mode 1)
+(electric-pair-mode 1)
 
 ;; Highlights matching parenthesis
 (show-paren-mode 1)
@@ -30,22 +30,15 @@
 ;;     (add-hook 'scheme-mode-hook #'parinfer-mode)
 ;;     (add-hook 'lisp-mode-hook #'parinfer-mode)))
 
-;; Automatically load paredit when editing a lisp file
-;; More at http://www.emacswiki.org/emacs/ParEdit
-(autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
-(add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
-(add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
-(add-hook 'ielm-mode-hook             #'enable-paredit-mode)
-(add-hook 'lisp-mode-hook             #'enable-paredit-mode)
-(add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
-(add-hook 'scheme-mode-hook           #'enable-paredit-mode)
-(add-hook 'clojure-mode-hook #'enable-paredit-mode)
+;; Enable cider mode on clojure mode enabled buffer
+;; (add-hook 'clojure-mode-hook #'enable-cider-mode)
 
 ;; Emacs can automatically create backup files. This tells Emacs to
 ;; put all backups in ~/.emacs.d/backups. More info:
 ;; http://www.gnu.org/software/emacs/manual/html_node/elisp/Backup-Files.html
 (setq backup-directory-alist `(("." . ,(concat user-emacs-directory
                                                "backups"))))
+
 (setq auto-save-default nil)
 
 ;; change highlight region color
